@@ -4,10 +4,11 @@ Project: Hackpad_numeric_keypad
 Creator: YuanRetro (William Li)
 Last Modified: 2026-MAR-21
 Repo: https://github.com/yuanretro/Hackpad_Numeric_Keypad
-Description: This firmware registers the keypad in the OS and sends out key press like a regular numpad.
-NumLock key switches the keypad between sending out number keys and function keys.
-One of the LED indicate the NumLock state, and lights up according to key presses.
-The LED strip displays a breathing effect when no activity is present on the keyapd.
+Current features:
+- Registers the keypad as a standard USB HID device and sends inputs accordingly.
+- The NumLock key switches between number and function keys.
+- One of the LEDs in the strip indicates the current NumLock state, while the others flash on input.
+- The LED strip displays a breathing effect when the keypad is idle.
 */
 
 #include <Arduino.h>
