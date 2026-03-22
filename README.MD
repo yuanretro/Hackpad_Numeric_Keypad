@@ -6,7 +6,17 @@ Email: [admin@yuanshen.dev](mailto:admin@yuanshen.dev)
 
 GitHub Repo: <https://github.com/yuanretro/Hackpad_Numeric_Keypad>
 
-Last Revision: 2026-MAR-21
+Last Revision: 2026-MAR-22
+
+## Revisions 2026-MAR-22
+
+All issues stated are being dealt with. The keypad is downsized to 16 keys, and the push button of a rotary encoder replaces the NumLock key. As there isn't enough GPIO left for the encoder, I decided to only wire one output pin to the controller. This configuration only allows the detection of the distance of rotation and not the direction, but this can be partially resolved by detecting whether the switch is being pressed during rotation and alter the direction of the controls accordingly. (Don't worry about the one extra diode, I have spare components myself.)
+
+The LEDs are being updated to the Mini-E variant of SK6812, and all diodes are now through-hole mount. Strangely enough, there seems to be some design issues with the package of the LEDs in EasyEDA. The slot region and the SMD pads are in minor conflict. This shouldn't affect anything despite of giving out nasty errors in the DRC check.
+
+For the casing, I added 4 mounting holes on the corners, each measured around 2.8mm, allowing the screws to fit tightly inside the plastic and hold the two pieces together. An assembled view is also available down below.
+
+The firmware haven't been updated, and I will do this step once the hardware part is complete.
 
 ## Introduction
 
@@ -22,7 +32,7 @@ Honestly speaking, I think I am also much more confident with projects like this
 
 ## Schematics and PCB Design
 
-As previously stated, I designed my PCB in EasyEDA. It is 10 cm by 10 cm exactly (this is somewhat important for minimizing the cost of the PCB, somehow), and I managed to fit a full-size arrangement of mechanical switches for a numpad. The keyboard matrix comes in a 5-row by 4-column arrangement, and takes up 9 GPIOs on the RP2040 microcontroller. Each individual switch is paired with a 1N4148 diode, to prevent current from flowing back and enable multiple keypresses at once. I used one extra GPIO for the 4 SK6812 LEDs forming a strip, and there is one vacant GPIO left. I haven't come up with a good idea for its purpose so far, but I may be able to make use of it in a later revision for a buzzer or a rotary encoder. Oh, of course, the bottom side of the board is filled with my favorite anime characters. 'Cuz why not?
+As previously stated, I designed my PCB in EasyEDA. It is 10 cm by 10 cm exactly (this is somewhat important for minimizing the cost of the PCB, somehow), and I managed to fit a full-size arrangement of mechanical switches for a numpad. The keyboard matrix comes in a 5-row by 4-column arrangement, and takes up 9 GPIOs on the RP2040 microcontroller. Each individual switch is paired with a 1N4148 diode, to prevent current from flowing back and enable multiple keypresses at once. I used one extra GPIO for the 4 SK6812 LEDs forming a strip, and another one for one pin of the rotary encoder. As there is no vacant GPIO left, I was unable to detect the direction the encoder is rotating, but I can overcome this by reversing the direction of the controls when the button is pressed whilst rotating the encoder.
 
 ![](./Schematic/Schematic_Hackpad_numeric_keypad.png)
 
@@ -30,17 +40,23 @@ As previously stated, I designed my PCB in EasyEDA. It is 10 cm by 10 cm exactly
 
 ![](./PCB/3D_PCB_bottom_Hackpad_numeric_keypad.png)
 
-(clockwise: Klee, Collei, Keqing, Yoimiya, and Nahida)
+(clockwise from top-right: Collei, Keqing, Yoimiya, Nahida, and Klee)
 
 ## Parts Required
 
 1 x Seeed Studio XIAO RP2040 Microcontroller
 
-4 x SK6812 Color LED
+1 x EC11 Rotary Encoder
 
-17 x Standard Mechanical Key Switches
+4 x SK6812 Mini-E Color LED
 
-17 x 1N4148W Diode
+4 x M3 Screws of appropriate length (Supplied by myself)
+
+16 x Standard Mechanical Key Switches
+
+16 x Key Caps
+
+17 x 1N4148 Diode (I can supply the extra)
 
 ## Case Design
 
@@ -50,7 +66,15 @@ The case design is rather primitive, as I will definitely make some further twea
 
 ![](./CAD/HackPad - Bottom Casing.png)
 
-(note the cutout allowing the USB cable to plug into the microcontroller)
+
+
+## Assembled View
+
+![](./CAD/HackPad - Assembled1.png)
+
+![](./CAD/HackPad - Assembled2.png)
+
+![](./CAD/HackPad - Assembled3.png)
 
 ## Firmware
 
