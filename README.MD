@@ -8,7 +8,11 @@ GitHub Repo: <https://github.com/yuanretro/Hackpad_Numeric_Keypad>
 
 Last Revision: 2026-MAR-22
 
-## Revisions 2026-MAR-22
+## Revisions 2026-MAR-22-2
+
+The LED mounts are being relocated to the opposite side of the board and rewired. While I do know that the rotary encoder need one extra wire for proper directional detection, and I've thought of many ways to resolve this issue, including dropping the keypad to 15 keys. But to be honest, I believe that this would undermine the project's core purpose as a useful numerical keypad. Since the rotary encoder serves a secondary role in this application, not being able to detect the direction of rotation isn't really a big concern to me. Also, this can be compensated by allowing to flip the direction of the controls while pushing down the button during roration.
+
+## Revisions 2026-MAR-22-1
 
 All issues stated are being dealt with. The keypad is downsized to 16 keys, and the push button of a rotary encoder replaces the NumLock key. As there isn't enough GPIO left for the encoder, I decided to only wire one output pin to the controller. This configuration only allows the detection of the distance of rotation and not the direction, but this can be partially resolved by detecting whether the switch is being pressed during rotation and alter the direction of the controls accordingly. (Don't worry about the one extra diode, I have spare components myself.)
 
@@ -65,8 +69,6 @@ The case design is rather primitive, as I will definitely make some further twea
 ![](./CAD/HackPad - Top Casing.png)
 
 ![](./CAD/HackPad - Bottom Casing.png)
-
-
 
 ## Assembled View
 
