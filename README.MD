@@ -66,17 +66,17 @@ As previously stated, I designed my PCB in EasyEDA. It is 10 cm by 10 cm exactly
 
 The case design is rather primitive, as I will definitely make some further tweaks once the PCB assembly is ready.  My idea for the casing is that it covers only the PCB and allows a small portion of the switch bodies to protrude above the case. This design can be found in many commercially available mechanical keyboards.
 
-![](./CAD/HackPad - Top Casing.png)
+![](./CAD/HackPad%20-%20Top Casing.png)
 
-![](./CAD/HackPad - Bottom Casing.png)
+![](./CAD/HackPad%20-%20Bottom Casing.png)
 
 ## Assembled View
 
-![](./CAD/HackPad - Assembled1.png)
+![](./CAD/HackPad%20-%20Assembled1.png)
 
-![](./CAD/HackPad - Assembled2.png)
+![](./CAD/HackPad%20-%20Assembled2.png)
 
-![](./CAD/HackPad - Assembled3.png)
+![](./CAD/HackPad%20-%20Assembled3.png)
 
 ## Firmware
 
