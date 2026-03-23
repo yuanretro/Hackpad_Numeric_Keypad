@@ -6,13 +6,17 @@ Email: [admin@yuanshen.dev](mailto:admin@yuanshen.dev)
 
 GitHub Repo: <https://github.com/yuanretro/Hackpad_Numeric_Keypad>
 
-Last Revision: 2026-MAR-22
+Last Revision: 2026-MAR-23
 
-## Revisions 2026-MAR-22-2
+## Revision 2026-MAR-23
+
+I removed the button of the encoder from the matrix, and now the matrix is 4x4 instead of 5x4. The one extra GPIO is used to wire the encoder properly. Numlock can now be enabled by a long press of a certain key. The exact configuration is yet to be determined in the code. This edit also downsized the number of diodes required from 17 to 16.
+
+## Revision 2026-MAR-22-2
 
 The LED mounts are being relocated to the opposite side of the board and rewired. While I do know that the rotary encoder need one extra wire for proper directional detection, and I've thought of many ways to resolve this issue, including dropping the keypad to 15 keys. But to be honest, I believe that this would undermine the project's core purpose as a useful numerical keypad. Since the rotary encoder serves a secondary role in this application, not being able to detect the direction of rotation isn't really a big concern to me. Also, this can be compensated by allowing to flip the direction of the controls while pushing down the button during roration.
 
-## Revisions 2026-MAR-22-1
+## Revision 2026-MAR-22-1
 
 All issues stated are being dealt with. The keypad is downsized to 16 keys, and the push button of a rotary encoder replaces the NumLock key. As there isn't enough GPIO left for the encoder, I decided to only wire one output pin to the controller. This configuration only allows the detection of the distance of rotation and not the direction, but this can be partially resolved by detecting whether the switch is being pressed during rotation and alter the direction of the controls accordingly. (Don't worry about the one extra diode, I have spare components myself.)
 
@@ -36,7 +40,7 @@ Honestly speaking, I think I am also much more confident with projects like this
 
 ## Schematics and PCB Design
 
-As previously stated, I designed my PCB in EasyEDA. It is 10 cm by 10 cm exactly (this is somewhat important for minimizing the cost of the PCB, somehow), and I managed to fit a full-size arrangement of mechanical switches for a numpad. The keyboard matrix comes in a 5-row by 4-column arrangement, and takes up 9 GPIOs on the RP2040 microcontroller. Each individual switch is paired with a 1N4148 diode, to prevent current from flowing back and enable multiple keypresses at once. I used one extra GPIO for the 4 SK6812 LEDs forming a strip, and another one for one pin of the rotary encoder. As there is no vacant GPIO left, I was unable to detect the direction the encoder is rotating, but I can overcome this by reversing the direction of the controls when the button is pressed whilst rotating the encoder.
+As previously stated, I designed my PCB in EasyEDA. It is 10 cm by 10 cm exactly (this is somewhat important for minimizing the cost of the PCB, somehow), and I managed to fit a full-size arrangement of mechanical switches for a numpad. The keyboard matrix comes in a 4-row by 4-column arrangement, and takes up 8 GPIOs on the RP2040 microcontroller. Each individual switch is paired with a 1N4148 diode, to prevent current from flowing back and enable multiple keypresses at once. I used one extra GPIO for the 4 SK6812 LEDs forming a strip, and another one for one pin of the rotary encoder. The last two GPIOs went to the rotary encoder, which will act as an auxiliary control for my numpad.
 
 ![](./Schematic/Schematic_Hackpad_numeric_keypad.png)
 
@@ -60,11 +64,11 @@ As previously stated, I designed my PCB in EasyEDA. It is 10 cm by 10 cm exactly
 
 16 x Key Caps
 
-17 x 1N4148 Diode (I can supply the extra)
+16 x 1N4148 Diode
 
 ## Case Design
 
-The case design is rather primitive, as I will definitely make some further tweaks once the PCB assembly is ready.  My idea for the casing is that it covers only the PCB and allows a small portion of the switch bodies to protrude above the case. This design can be found in many commercially available mechanical keyboards.
+The case design is rather primitive, as I will definitely make some further tweaks once the PCB assembly is ready.  My idea for the casing is that it covers only the PCB and allows a small portion of the switch bodies to protrude above the case. This design can be found in many commercially available mechanical keyboards. It also comes with 4 2.8 mm mounting holes on the corners for screws to fit into.
 
 ![](./CAD/HackPad%20-%20Top%20Casing.png)
 
