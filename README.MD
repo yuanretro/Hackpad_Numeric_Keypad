@@ -6,17 +6,27 @@ Email: [admin@yuanshen.dev](mailto:admin@yuanshen.dev)
 
 GitHub Repo: <https://github.com/yuanretro/Hackpad_Numeric_Keypad>
 
-Last Revision: 2026-MAR-23
+Last Revision: 2026-MAR-24
 
-## Revision 2026-MAR-23
+## Revision V4.0 2026-MAR-24
+
+I edited the symbol in EasyEDA, so it now matches the diagram shown on SK6812 Mini-E's datasheet. This should solve the problem. 
+
+The edit can be seen in the picture:
+
+![](./Assets/MAR24-Edit1.png)
+
+![](./Assets/MAR24-Edit2.png)
+
+## Revision V3.0 2026-MAR-23
 
 I removed the button of the encoder from the matrix, and now the matrix is 4x4 instead of 5x4. The one extra GPIO is used to wire the encoder properly. Numlock can now be enabled by a long press of a certain key. The exact configuration is yet to be determined in the code. This edit also downsized the number of diodes required from 17 to 16.
 
-## Revision 2026-MAR-22-2
+## Revision V2.0 2026-MAR-22
 
 The LED mounts are being relocated to the opposite side of the board and rewired. While I do know that the rotary encoder need one extra wire for proper directional detection, and I've thought of many ways to resolve this issue, including dropping the keypad to 15 keys. But to be honest, I believe that this would undermine the project's core purpose as a useful numerical keypad. Since the rotary encoder serves a secondary role in this application, not being able to detect the direction of rotation isn't really a big concern to me. Also, this can be compensated by allowing to flip the direction of the controls while pushing down the button during roration.
 
-## Revision 2026-MAR-22-1
+## Revision V1.0 2026-MAR-22
 
 All issues stated are being dealt with. The keypad is downsized to 16 keys, and the push button of a rotary encoder replaces the NumLock key. As there isn't enough GPIO left for the encoder, I decided to only wire one output pin to the controller. This configuration only allows the detection of the distance of rotation and not the direction, but this can be partially resolved by detecting whether the switch is being pressed during rotation and alter the direction of the controls accordingly. (Don't worry about the one extra diode, I have spare components myself.)
 
